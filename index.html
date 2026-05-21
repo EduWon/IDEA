@@ -4,39 +4,60 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Special-Education Identification in the United States — A Statistical Companion</title>
+
 <meta name="description" content="A reproducible panel of U.S. IDEA Section 618 reporting and the NCES Digest. National identification rates from 1976; state-level breakdowns by disability and race from 2005; environment, sex, and English-learner cross-tabs from 2012; through 2024–25. Fifteen tabs." />
 <meta name="keywords" content="IDEA, Section 618, special education, OSEP, NCES, identification rate, disability, autism, SLD, panel data, statistics, U.S. Department of Education, disproportionality, least restrictive environment" />
 <meta name="robots" content="index, follow" />
+
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Special-Education Identification in the United States" />
 <meta property="og:description" content="A statistical companion to IDEA Section 618 reporting and the NCES Digest." />
 <meta property="og:locale" content="en_US" />
+
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:title" content="Special-Education Identification in the United States" />
 <meta name="twitter:description" content="A statistical companion to IDEA Section 618 reporting and the NCES Digest." />
+
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23f4ede0'/><text x='50' y='66' font-family='Georgia,serif' font-size='52' text-anchor='middle' fill='%231d1812' font-style='italic'>15</text></svg>" />
+
 <style>
-  :root { --paper: #f4ede0; --ink: #1d1812; }
+  :root {
+    --paper: #f4ede0;
+    --ink: #1d1812;
+  }
   html, body {
-    margin: 0; padding: 0;
-    background: var(--paper); color: var(--ink);
+    margin: 0;
+    padding: 0;
+    background: var(--paper);
+    color: var(--ink);
     font-family: 'Iowan Old Style','Charter','Source Serif Pro',Georgia,'Times New Roman',serif;
-    -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   .root-container {
-    max-width: 1080px; margin: 0 auto;
-    padding-left: 1rem; padding-right: 1rem; padding-bottom: 72px;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 72px;
   }
-  @media (min-width: 640px) { .root-container { padding-left: 2rem; padding-right: 2rem; } }
-  @media (min-width: 1024px) { .root-container { padding-left: 4rem; padding-right: 4rem; } }
+  @media (min-width: 640px) {
+    .root-container { padding-left: 2rem; padding-right: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    .root-container { padding-left: 4rem; padding-right: 4rem; }
+  }
   nav::-webkit-scrollbar { height: 4px; }
   nav::-webkit-scrollbar-thumb { background: #cdbf9f; border-radius: 0; }
   nav::-webkit-scrollbar-track { background: transparent; }
-  @media print { nav { display: none !important; } }
+  @media print {
+    nav { display: none !important; }
+  }
 </style>
 </head>
 <body>
 <div id="root"></div>
+
 <noscript>
   <div style="padding: 32px; max-width: 720px; margin: 0 auto; font-family: serif; line-height: 1.6;">
     <h1 style="font-weight: 400;">Special-Education Identification in the United States</h1>
@@ -44,6 +65,7 @@
        Please enable JavaScript to view the figures.</p>
   </div>
 </noscript>
+
 <script>/**
  * @license React
  * react.production.min.js
@@ -835,9 +857,9 @@ function Section({
     style: {
       fontFamily: SERIF,
       color: INK,
-      fontSize: 'clamp(28px, 5.4vw, 44px)',
+      fontSize: 'clamp(22px, 3.6vw, 30px)',
       fontWeight: 400,
-      lineHeight: 1.05,
+      lineHeight: 1.1,
       marginTop: 8,
       marginBottom: 16,
       letterSpacing: '-0.01em'
@@ -1029,7 +1051,7 @@ function Masthead() {
   }, /*#__PURE__*/React.createElement("h1", {
     style: {
       fontFamily: SERIF,
-      fontSize: 'clamp(32px, 6vw, 60px)',
+      fontSize: 'clamp(24px, 4vw, 38px)',
       color: INK,
       lineHeight: 1.05,
       fontWeight: 400,
@@ -1080,7 +1102,7 @@ function Frontispiece() {
     style: {
       float: 'left',
       fontFamily: SERIF,
-      fontSize: '4.5em',
+      fontSize: '3em',
       lineHeight: 0.85,
       marginRight: 10,
       marginTop: 4,
