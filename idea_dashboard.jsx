@@ -300,7 +300,7 @@ function Masthead() {
         </h1>
         <p style={{
           fontFamily: SERIF, fontStyle: 'italic',
-          fontSize: 'clamp(16px, 2.4vw, 22px)',
+          fontSize: 'clamp(14px, 2vw, 18px)',
           color: TEXT_2, marginTop: 14, marginBottom: 0, lineHeight: 1.4,
           maxWidth: 700,
         }}>
