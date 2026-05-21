@@ -167,8 +167,8 @@ function Section({ id, num, title, kicker, lede, children }) {
           §&nbsp;{ROMAN[num] || num}&nbsp;&middot;&nbsp;{kicker}
         </SmallCaps>
         <h2 style={{
-          fontFamily: SERIF, color: INK, fontSize: 'clamp(28px, 5.4vw, 44px)',
-          fontWeight: 400, lineHeight: 1.05, marginTop: 8, marginBottom: 16,
+          fontFamily: SERIF, color: INK, fontSize: 'clamp(22px, 3.6vw, 30px)',
+          fontWeight: 400, lineHeight: 1.1, marginTop: 8, marginBottom: 16,
           letterSpacing: '-0.01em',
         }}>
           {title}
@@ -292,7 +292,7 @@ function Masthead() {
       </div>
       <div style={{ marginBottom: 18 }}>
         <h1 style={{
-          fontFamily: SERIF, fontSize: 'clamp(32px, 6vw, 60px)',
+          fontFamily: SERIF, fontSize: 'clamp(24px, 4vw, 38px)',
           color: INK, lineHeight: 1.05, fontWeight: 400, letterSpacing: '-0.015em',
           margin: 0,
         }}>
@@ -330,7 +330,7 @@ function Frontispiece() {
         lineHeight: 1.65, color: INK, maxWidth: 660, margin: 0,
       }}>
         <span style={{
-          float: 'left', fontFamily: SERIF, fontSize: '4.5em', lineHeight: 0.85,
+          float: 'left', fontFamily: SERIF, fontSize: '3em', lineHeight: 0.85,
           marginRight: 10, marginTop: 4, color: ACCENT, fontWeight: 400,
         }}>S</span>
         ince the Education for All Handicapped Children Act took effect in fall&nbsp;1976, the share
