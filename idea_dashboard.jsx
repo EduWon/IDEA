@@ -24,41 +24,41 @@ const PAPER_2   = '#ebe2cf';
 const PAPER_3   = '#e3d8be';
 const INK       = '#1d1812';
 const TEXT_2    = '#544839';
-const TEXT_3    = '#8a7d6a';
-const TEXT_4    = '#b8ad97';
+const TEXT_3    = '#564e42';
+const TEXT_4    = '#776a51';
 const RULE      = '#cdbf9f';
 const RULE_SOFT = '#dfd3b6';
-const ACCENT    = '#8b3a2e';
+const ACCENT    = '#83372b';
 const ACCENT_2  = '#2d4660';
 
 const SERIF = "'Iowan Old Style','Charter','Source Serif Pro',Georgia,'Times New Roman',serif";
 const MONO  = "'JetBrains Mono','SF Mono',Menlo,monospace";
 
 // Calm chart palette — earth + ink
-const PALETTE = ['#8b3a2e','#2d4660','#806d51','#5a6b4e','#a98a4a','#b56e4a','#4a6373','#6e7a52'];
+const PALETTE = ['#83372b','#2d4660','#806d51','#5a6b4e','#a28447','#b56e4a','#4a6373','#6e7a52'];
 
 // Per-disability color fixed across all charts so the eye learns the
 // category once and recognises it everywhere.
 const DISAB_COLOR = {
-  SLD:'#8b3a2e', SLI:'#2d4660', OHI:'#806d51', AUT:'#5a6b4e', DD:'#a98a4a',
+  SLD:'#83372b', SLI:'#2d4660', OHI:'#806d51', AUT:'#5a6b4e', DD:'#a28447',
   ID:'#b56e4a',  ED:'#4a6373',  MD:'#6e7a52', HI:'#9c7752', VI:'#5e708c',
-  OI:'#7a6b56',  TBI:'#675946', DB:'#3a4f5c', DEAF:'#544c3e', PRE:'#a39378', ALL:'#1d1812',
+  OI:'#7a6b56',  TBI:'#675946', DB:'#3a4f5c', DEAF:'#544c3e', PRE:'#988667', ALL:'#1d1812',
 };
 
 const RACE_COLOR = {
-  WHITE:'#806d51', HISP:'#8b3a2e', BLACK:'#2d4660', ASIAN:'#5a6b4e',
-  AIAN:'#b56e4a',  NHPI:'#a98a4a',  TWO_PLUS:'#4a6373', ASIAN_PI_OMB97:'#6e7a52',
+  WHITE:'#806d51', HISP:'#83372b', BLACK:'#2d4660', ASIAN:'#5a6b4e',
+  AIAN:'#b56e4a',  NHPI:'#a28447',  TWO_PLUS:'#4a6373', ASIAN_PI_OMB97:'#6e7a52',
 };
 
 const ENV_COLOR_6_21 = {
-  INSIDE_80_PLUS:'#5a6b4e', INSIDE_40_79:'#a98a4a', INSIDE_LT_40:'#b56e4a',
-  SEPARATE_SCHOOL:'#8b3a2e', RESIDENTIAL:'#4a6373', HOMEBOUND:'#6e7a52',
+  INSIDE_80_PLUS:'#5a6b4e', INSIDE_40_79:'#a28447', INSIDE_LT_40:'#b56e4a',
+  SEPARATE_SCHOOL:'#83372b', RESIDENTIAL:'#4a6373', HOMEBOUND:'#6e7a52',
   CORRECTIONAL:'#544c3e', PARENTAL_PRIVATE:'#806d51',
 };
 
 const ENV_COLOR_3_5 = {
-  EC_REG_GE10:'#5a6b4e', EC_REG_LT10:'#a98a4a', EC_OTHER_GE10:'#806d51',
-  EC_OTHER_LT10:'#b56e4a', SEPARATE_CLASS:'#8b3a2e', HOME:'#4a6373', SERVICE_PROVIDER:'#6e7a52',
+  EC_REG_GE10:'#5a6b4e', EC_REG_LT10:'#a28447', EC_OTHER_GE10:'#806d51',
+  EC_OTHER_LT10:'#b56e4a', SEPARATE_CLASS:'#83372b', HOME:'#4a6373', SERVICE_PROVIDER:'#6e7a52',
 };
 
 
@@ -825,13 +825,18 @@ function StateBarChart({ data, natPct }) {
         })}
 
         {/* national reference line */}
-        <line x1={mapX(natPct, minV, maxV)} y1={4}
+        <line x1={mapX(natPct, minV, maxV)} y1={18}
               x2={mapX(natPct, minV, maxV)} y2={HEIGHT - 12}
-              stroke={ACCENT} strokeWidth={1} strokeDasharray="2 2" />
-        <text x={mapX(natPct, minV, maxV)} y={2}
-              fontFamily={MONO} fontSize={9} fill={ACCENT}
+              stroke={ACCENT} strokeWidth={1.5} strokeDasharray="4 3" />
+        {/* paper-color background plate so the label sits cleanly over the dashed line */}
+        <rect x={mapX(natPct, minV, maxV) - 32} y={2}
+              width={64} height={16}
+              fill={PAPER} />
+        <text x={mapX(natPct, minV, maxV)} y={13}
+              fontFamily={MONO} fontSize={11} fill={ACCENT}
+              fontWeight={600}
               textAnchor="middle"
-              letterSpacing="0.06em">
+              letterSpacing="0.04em">
           U.S. {natPct}%
         </text>
 
@@ -2024,10 +2029,10 @@ function SectionXIV() {
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24,
       }}>
         <div>
-          <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>Build determinism</SmallCaps>
+          <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>Build</SmallCaps>
           <p style={{ fontFamily: MONO, fontSize: 11, color: TEXT_2, marginTop: 6, lineHeight: 1.55 }}>
-            Master content hash<br/>
-            <span style={{ color: INK }}>7a32f2ac …91fc88</span>
+            Deterministic<br/>
+            <span style={{ color: INK }}>cross-source validated</span>
           </p>
         </div>
         <div>
@@ -2045,11 +2050,52 @@ function SectionXIV() {
           </p>
         </div>
         <div>
-          <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>Distribution</SmallCaps>
+          <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>Access</SmallCaps>
           <p style={{ fontFamily: MONO, fontSize: 11, color: TEXT_2, marginTop: 6, lineHeight: 1.55 }}>
-            Tarball<br/>
-            <span style={{ color: INK }}>idea_db.tar.gz</span>
+            Not publicly distributed<br/>
+            <span style={{ color: INK }}>contact authors</span>
           </p>
+        </div>
+      </div>
+
+      <div style={{
+        marginTop: 36, paddingTop: 24, borderTop: `1px solid ${RULE}`,
+        fontFamily: SERIF, fontSize: 13.5, color: INK, lineHeight: 1.65,
+      }}>
+        <SmallCaps style={{ fontSize: 11, color: ACCENT, display: 'block', marginBottom: 10 }}>
+          Attribution &amp; citation
+        </SmallCaps>
+        <p style={{ margin: '0 0 14px 0' }}>
+          This panel was developed at the request of{' '}
+          <strong style={{ color: INK }}>Won G. Kim</strong>, Associate Professor,{' '}
+          <a href="https://www.tamiu.edu/coedu/index.shtml" target="_blank" rel="noopener noreferrer"
+             style={{ color: ACCENT, textDecoration: 'none' }}>
+            Texas A&amp;M International University, College of Education
+          </a>.
+        </p>
+        <p style={{ margin: '0 0 14px 0', fontSize: 12.5, color: TEXT_2 }}>
+          Contributor roles follow the{' '}
+          <a href="https://credit.niso.org/" target="_blank" rel="noopener noreferrer"
+             style={{ color: ACCENT, textDecoration: 'none' }}>
+            CRediT taxonomy
+          </a>{':'}
+          <br/>
+          <strong style={{ color: INK }}>Won G. Kim</strong> &mdash; Conceptualization, Supervision.
+          <br/>
+          <strong style={{ color: INK }}>Pilsun Choi</strong> &mdash; Data curation, Software,
+          Methodology, Visualization.
+        </p>
+        <div style={{
+          fontFamily: MONO, fontSize: 11.5, color: TEXT_2,
+          background: PAPER_2, padding: '12px 14px', lineHeight: 1.6,
+          borderLeft: `2px solid ${ACCENT}`,
+        }}>
+          Kim, Won G. (Conceptualization, Supervision), &amp; Choi, Pilsun (Data curation,
+          Software, Methodology, Visualization). (2026).{' '}
+          <em>Special-Education Identification in the United States: A statistical companion
+          to IDEA Section 618</em> (Edition May 2026) [Data dashboard]. Texas A&amp;M
+          International University, College of Education.{' '}
+          https://eduwon.github.io/IDEA/
         </div>
       </div>
 
@@ -2314,30 +2360,38 @@ function SiteFooter() {
         <SmallCaps style={{ fontSize: 10, color: TEXT_3, display: 'block', marginBottom: 6 }}>
           Source &amp; data
         </SmallCaps>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer"
+        <a href="https://github.com/eduwon/IDEA" target="_blank" rel="noopener noreferrer"
           style={{ color: ACCENT, textDecoration: 'none' }}>
           View on GitHub ↗
         </a>
         <div style={{ marginTop: 4, fontFamily: MONO, fontSize: 11, color: TEXT_3 }}>
-          idea_db.tar.gz · 7a32f2ac…91fc88
+          source &amp; code
         </div>
       </div>
       <div>
         <SmallCaps style={{ fontSize: 10, color: TEXT_3, display: 'block', marginBottom: 6 }}>
           Citation
         </SmallCaps>
-        <div style={{ fontSize: 12 }}>
-          Cite as: <em>idea_db: A statistical panel for IDEA Section&nbsp;618</em>,
-          Edition May 2026.
+        <div style={{ fontSize: 12, lineHeight: 1.5 }}>
+          Kim, Won G., &amp; Choi, Pilsun. (2026). <em>Special-Education Identification
+          in the United States</em> [Data dashboard].{' '}
+          <a href="https://eduwon.github.io/IDEA/" target="_blank" rel="noopener noreferrer"
+             style={{ color: ACCENT, textDecoration: 'none' }}>
+            eduwon.github.io/IDEA
+          </a>
         </div>
       </div>
       <div>
         <SmallCaps style={{ fontSize: 10, color: TEXT_3, display: 'block', marginBottom: 6 }}>
-          License
+          Acknowledgment
         </SmallCaps>
-        <div style={{ fontSize: 12 }}>
-          Code: MIT.<br />
-          Data: derived from public U.S. federal sources (NCES, OSEP); see Colophon.
+        <div style={{ fontSize: 12, lineHeight: 1.5 }}>
+          Developed at the request of <strong style={{ color: INK }}>Won G. Kim</strong>,
+          Associate Professor,{' '}
+          <a href="https://www.tamiu.edu/coedu/index.shtml" target="_blank" rel="noopener noreferrer"
+             style={{ color: ACCENT, textDecoration: 'none' }}>
+            Texas A&amp;M International University, College of Education ↗
+          </a>.
         </div>
       </div>
     </footer>
