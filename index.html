@@ -1002,7 +1002,7 @@ function CustomTooltip({
       fontFamily: MONO,
       fontVariantNumeric: 'tabular-nums'
     }
-  }, formatter ? formatter(p.value, p.name) : p.value))));
+  }, formatter ? formatter(p.value, p.name, p) : p.value))));
 }
 
 // =====================================================================

@@ -263,7 +263,7 @@ function CustomTooltip({ active, payload, label, formatter, labelFormatter }) {
             {p.name}
           </span>
           <span style={{ fontFamily: MONO, fontVariantNumeric: 'tabular-nums' }}>
-            {formatter ? formatter(p.value, p.name) : p.value}
+            {formatter ? formatter(p.value, p.name, p) : p.value}
           </span>
         </div>
       ))}
