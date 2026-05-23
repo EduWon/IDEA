@@ -7,7 +7,7 @@ import {
 
 // =====================================================================
 // DATA — extracted from idea_panel.sqlite (608 raw tables aggregated).
-// Ten data tables totalling 568,000+ source rows; what follows is the
+// Ten data tables totalling 538,000+ source rows; what follows is the
 // minimum panel needed for the views below.
 // =====================================================================
 
@@ -2039,7 +2039,7 @@ function SectionXIV() {
           <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>Regression</SmallCaps>
           <p style={{ fontFamily: MONO, fontSize: 11, color: TEXT_2, marginTop: 6, lineHeight: 1.55 }}>
             Test suite<br/>
-            <span style={{ color: INK }}>18 / 18 passing</span>
+            <span style={{ color: INK }}>5 / 5 passing</span>
           </p>
         </div>
         <div>
@@ -2105,7 +2105,7 @@ function SectionXIV() {
         fontSize: 13, color: TEXT_3, lineHeight: 1.6,
       }}>
         End of the panel. Set in Iowan Old Style; figures rendered in SVG and Recharts.
-        Compiled from idea_panel.sqlite — a 568,000-row analytical view of U.S. special-education
+        Compiled from idea_panel.sqlite — a 538,000-row analytical view of U.S. special-education
         reporting, 1976&ndash;77 through 2024&ndash;25.
       </div>
     </Section>
