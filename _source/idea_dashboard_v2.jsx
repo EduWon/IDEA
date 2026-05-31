@@ -36,15 +36,16 @@ const PAPER_2   = '#ebe2cf';
 const PAPER_3   = '#e3d8be';
 const INK       = '#1d1812';
 const TEXT_2    = '#544839';
-const TEXT_3    = '#564e42';
-const TEXT_4    = '#776a51';
+const TEXT_3    = '#433c32';
+const TEXT_4    = '#615541';
 const RULE      = '#cdbf9f';
 const RULE_SOFT = '#dfd3b6';
-const ACCENT    = '#83372b';
+const ACCENT    = '#6f2e24';
 const ACCENT_2  = '#2d4660';
 
 const SERIF = "'Iowan Old Style','Charter','Source Serif Pro',Georgia,'Times New Roman',serif";
-const MONO  = "'JetBrains Mono','SF Mono',Menlo,monospace";
+const MONO  = SERIF;
+const CODE  = "'JetBrains Mono','SF Mono',Menlo,Consolas,monospace";
 
 const PALETTE = ['#83372b','#2d4660','#806d51','#5a6b4e','#a28447','#b56e4a','#4a6373','#6e7a52'];
 
@@ -97,7 +98,7 @@ const ENV_ORDER = ['inside_80_plus','inside_40_79','inside_lt_40','separate_scho
 // =====================================================================
 const SmallCaps = ({ children, style, ...rest }) => (
   <span
-    style={{ fontFamily: SERIF, fontVariant: 'small-caps', letterSpacing: '0.18em', ...style }}
+    style={{ fontFamily: SERIF, fontVariant: 'small-caps', fontWeight: 600, fontSize: 15, letterSpacing: '0.1em', ...style }}
     {...rest}
   >
     {children}
@@ -106,7 +107,7 @@ const SmallCaps = ({ children, style, ...rest }) => (
 
 function PlateNum({ n }) {
   return (
-    <SmallCaps style={{ fontSize: 11, color: TEXT_3 }}>
+    <SmallCaps style={{ fontSize: 14, color: TEXT_3 }}>
       Figure&nbsp;{n}
     </SmallCaps>
   );
@@ -117,20 +118,25 @@ function Caption({ n, title, children, source }) {
     <div style={{ marginTop: 12, marginBottom: 4 }}>
       <div style={{ display: 'flex', alignItems: 'baseline', gap: 14, flexWrap: 'wrap' }}>
         <PlateNum n={n} />
-        <span style={{ fontFamily: SERIF, fontStyle: 'italic', color: INK, fontSize: 14 }}>
+        <span style={{ fontFamily: SERIF, fontStyle: 'italic', color: INK, fontSize: 16 }}>
           {title}
         </span>
       </div>
       {children && (
-        <p style={{ fontFamily: SERIF, color: TEXT_2, fontSize: 13, marginTop: 6, lineHeight: 1.55 }}>
+        <p style={{ fontFamily: SERIF, color: TEXT_2, fontSize: 15, marginTop: 6, lineHeight: 1.55 }}>
           {children}
         </p>
       )}
-      {source && (
-        <p style={{ fontFamily: MONO, color: TEXT_3, fontSize: 10, marginTop: 6, letterSpacing: '0.04em' }}>
-          {source}
-        </p>
-      )}
+      {source && (() => {
+        const idx = source.indexOf('— ');
+        const head = idx >= 0 ? source.slice(0, idx) : '';
+        const rest = idx >= 0 ? source.slice(idx) : source;
+        return (
+          <p style={{ fontFamily: MONO, color: TEXT_3, fontSize: 14, marginTop: 6, letterSpacing: '0.04em' }}>
+            {head && <strong style={{ fontWeight: 700 }}>{head}</strong>}{rest}
+          </p>
+        );
+      })()}
     </div>
   );
 }
@@ -139,11 +145,11 @@ function Section({ id, num, title, kicker, lede, children }) {
   return (
     <section id={id} style={{ paddingTop: 56, paddingBottom: 24, scrollMarginTop: 24 }}>
       <div style={{ marginBottom: 24 }}>
-        <SmallCaps style={{ fontSize: 11, color: ACCENT }}>
+        <SmallCaps style={{ fontSize: 14, color: ACCENT }}>
           §&nbsp;{ROMAN[num] || num}&nbsp;&middot;&nbsp;{kicker}
         </SmallCaps>
         <h2 style={{
-          fontFamily: SERIF, color: INK, fontSize: 'clamp(22px, 3.6vw, 30px)',
+          fontFamily: SERIF, color: INK, fontSize: 'clamp(24px, 3.6vw, 31px)',
           fontWeight: 400, lineHeight: 1.1, marginTop: 8, marginBottom: 16,
           letterSpacing: '-0.01em',
         }}>
@@ -151,7 +157,7 @@ function Section({ id, num, title, kicker, lede, children }) {
         </h2>
         {lede && (
           <p style={{
-            fontFamily: SERIF, color: TEXT_2, fontSize: 'clamp(15px,1.8vw,17px)',
+            fontFamily: SERIF, color: TEXT_2, fontSize: 'clamp(16px,1.8vw,18px)',
             lineHeight: 1.65, maxWidth: 640, marginBottom: 0,
           }}>
             {lede}
@@ -168,7 +174,7 @@ function MarginNote({ children }) {
     <aside style={{
       borderLeft: `1px solid ${RULE}`, paddingLeft: 14,
       fontFamily: SERIF, fontStyle: 'italic',
-      fontSize: 12.5, lineHeight: 1.55, color: TEXT_2,
+      fontSize: 15, lineHeight: 1.55, color: TEXT_2,
       maxWidth: 420, marginTop: 18,
     }}>
       {children}
@@ -179,9 +185,9 @@ function MarginNote({ children }) {
 function StatCard({ kicker, value, unit, sub }) {
   return (
     <div style={{ borderTop: `1px solid ${RULE}`, paddingTop: 14, paddingBottom: 6 }}>
-      <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>{kicker}</SmallCaps>
+      <SmallCaps style={{ fontSize: 14, color: TEXT_3 }}>{kicker}</SmallCaps>
       <div style={{
-        fontFamily: SERIF, fontSize: 'clamp(28px, 5vw, 40px)',
+        fontFamily: SERIF, fontSize: 'clamp(30px, 5vw, 42px)',
         color: INK, lineHeight: 1.05, marginTop: 6, fontWeight: 400, letterSpacing: '-0.01em',
       }}>
         {value}
@@ -192,7 +198,7 @@ function StatCard({ kicker, value, unit, sub }) {
         )}
       </div>
       {sub && (
-        <div style={{ fontFamily: SERIF, fontSize: 12, color: TEXT_2, marginTop: 6, fontStyle: 'italic' }}>
+        <div style={{ fontFamily: SERIF, fontSize: 14, color: TEXT_2, marginTop: 6, fontStyle: 'italic' }}>
           {sub}
         </div>
       )}
@@ -200,7 +206,7 @@ function StatCard({ kicker, value, unit, sub }) {
   );
 }
 
-const AXIS_STYLE = { fontFamily: MONO, fontSize: 10, fill: TEXT_3, letterSpacing: '0.04em' };
+const AXIS_STYLE = { fontFamily: MONO, fontSize: 14, fill: TEXT_3, letterSpacing: '0.04em' };
 
 function ChartFrame({ children, height = 280 }) {
   return (
@@ -217,10 +223,10 @@ function CustomTooltip({ active, payload, label, formatter, labelFormatter }) {
   return (
     <div style={{
       background: PAPER, border: `1px solid ${RULE}`, padding: '8px 12px',
-      fontFamily: SERIF, fontSize: 12, color: INK, boxShadow: '0 1px 0 rgba(0,0,0,0.04)',
+      fontFamily: SERIF, fontSize: 14, color: INK, boxShadow: '0 1px 0 rgba(0,0,0,0.04)',
     }}>
       <div style={{
-        fontFamily: MONO, fontSize: 10, color: TEXT_3,
+        fontFamily: MONO, fontSize: 14, color: TEXT_3,
         letterSpacing: '0.06em', marginBottom: 4, textTransform: 'uppercase',
       }}>
         {labelFormatter ? labelFormatter(label) : label}
@@ -253,13 +259,13 @@ function DisabilityLegend({ codes = DISAB_ORDER }) {
       {codes.map(code => (
         <div key={code} style={{
           display: 'flex', alignItems: 'baseline', gap: 8,
-          fontFamily: SERIF, fontSize: 12, color: TEXT_2,
+          fontFamily: SERIF, fontSize: 14, color: TEXT_2,
         }}>
           <span style={{
             display: 'inline-block', width: 10, height: 10,
             background: DISAB_COLOR[code], flexShrink: 0,
           }} />
-          <span style={{ fontFamily: MONO, fontSize: 10, color: TEXT_3, minWidth: 30 }}>{code}</span>
+          <span style={{ fontFamily: MONO, fontSize: 14, color: TEXT_3, minWidth: 30 }}>{code}</span>
           <span style={{ fontStyle: 'italic' }}>{PANEL.disabilities[code]?.label}</span>
         </div>
       ))}
@@ -274,40 +280,28 @@ function Masthead() {
   return (
     <header style={{ borderBottom: `2px solid ${INK}`, paddingTop: 24, paddingBottom: 24 }}>
       <div style={{
-        display: 'flex', justifyContent: 'space-between', alignItems: 'baseline',
+        display: 'flex', justifyContent: 'flex-start', alignItems: 'baseline',
         flexWrap: 'wrap', gap: 12, marginBottom: 18,
       }}>
-        <SmallCaps style={{ fontSize: 11, color: TEXT_2 }}>
-          A State-by-Category Descriptive Analysis
-        </SmallCaps>
-        <SmallCaps style={{ fontSize: 11, color: TEXT_3 }}>
-          idea_db_v2&nbsp;·&nbsp;2005&ndash;2025
+        <SmallCaps style={{ fontSize: 16, color: TEXT_2 }}>
+          A State-by-Category Descriptive Analysis, 2005&ndash;2025
         </SmallCaps>
       </div>
       <div style={{ marginBottom: 18 }}>
         <h1 style={{
-          fontFamily: SERIF, fontSize: 'clamp(24px, 4vw, 38px)',
+          fontFamily: SERIF, fontSize: 'clamp(26px, 4vw, 39px)',
           color: INK, lineHeight: 1.05, fontWeight: 400, letterSpacing: '-0.015em', margin: 0,
         }}>
           Twenty Years of Special-Education<br/>Identification in the United States
         </h1>
         <p style={{
-          fontFamily: SERIF, fontStyle: 'italic', fontSize: 'clamp(14px, 2vw, 18px)',
+          fontFamily: SERIF, fontStyle: 'italic', fontSize: 'clamp(16px, 2vw, 19px)',
           color: TEXT_2, marginTop: 14, marginBottom: 0, lineHeight: 1.4, maxWidth: 720,
         }}>
           An interactive companion to the eight-chapter monograph — the national rate,
           category recomposition, autism, cross-state variation, placement, and the COVID
           inflection, each reproducible from a single SQLite panel.
         </p>
-      </div>
-      <div style={{
-        display: 'flex', gap: 24, fontFamily: MONO, fontSize: 10,
-        color: TEXT_3, letterSpacing: '0.06em', flexWrap: 'wrap',
-      }}>
-        <span>{PANEL.row_counts.fact_state_disability.toLocaleString()} STATE·DISAB·CELLS</span>
-        <span>{PANEL.row_counts.fact_state_environment.toLocaleString()} ENV·CELLS</span>
-        <span>{PANEL.row_counts.fact_state_enrollment.toLocaleString()} ENROLL·ROWS</span>
-        <span>{PANEL.dq.length} DQ·FLAGS</span>
       </div>
     </header>
   );
@@ -317,7 +311,7 @@ function Frontispiece() {
   return (
     <div style={{ paddingTop: 40, paddingBottom: 24, position: 'relative' }}>
       <p style={{
-        fontFamily: SERIF, fontSize: 'clamp(16px, 2vw, 18px)',
+        fontFamily: SERIF, fontSize: 'clamp(17px, 2vw, 19px)',
         lineHeight: 1.65, color: INK, maxWidth: 680, margin: 0,
       }}>
         <span style={{
@@ -334,7 +328,7 @@ function Frontispiece() {
         This dashboard is the panel as it stands — what changed, where, and by how much.
       </p>
       <p style={{
-        fontFamily: SERIF, fontStyle: 'italic', fontSize: 13, lineHeight: 1.55,
+        fontFamily: SERIF, fontStyle: 'italic', fontSize: 15, lineHeight: 1.55,
         color: TEXT_2, maxWidth: 680, marginTop: 20, marginBottom: 0,
       }}>
         Because the data are aggregate and child-anonymous, the study is deliberately descriptive:
@@ -356,7 +350,7 @@ function AtAGlance() {
     <section style={{ paddingTop: 8, paddingBottom: 16 }}>
       <div style={{
         display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(170px, 1fr))',
-        gap: 'clamp(16px, 3vw, 32px)', marginTop: 16,
+        gap: 'clamp(18px, 3vw, 32px)', marginTop: 16,
       }}>
         <StatCard
           kicker={`Identification rate, ${last.year}`}
@@ -406,7 +400,7 @@ function SectionI() {
           <YAxis yAxisId="L" stroke={TEXT_3} tickLine={false} axisLine={false}
                  tick={AXIS_STYLE} domain={[12, 16]}
                  label={{ value: '% of public-school enrollment', angle: -90, position: 'insideLeft',
-                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 11, fill: TEXT_2 }, dy: 90, dx: 12 }} />
+                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 14, fill: TEXT_2 }, dy: 90, dx: 12 }} />
           <YAxis yAxisId="R" orientation="right" stroke={TEXT_3} tickLine={false} axisLine={false}
                  tick={AXIS_STYLE} domain={[6, 8.5]} tickFormatter={v => v.toFixed(1) + 'M'} />
           <Tooltip content={<CustomTooltip
@@ -421,7 +415,7 @@ function SectionI() {
                 dot={{ r: 2.5, fill: ACCENT, stroke: PAPER, strokeWidth: 1 }}
                 activeDot={{ r: 4, fill: ACCENT }} isAnimationActive={false} />
           <ReferenceLine x="2011" yAxisId="L" stroke={TEXT_3} strokeDasharray="2 4"
-            label={{ position: 'top', value: 'NCES denom. seam', style: { fontFamily: SERIF, fontStyle:'italic', fontSize: 10, fill: TEXT_2 } }} />
+            label={{ position: 'top', value: 'NCES denom. seam', style: { fontFamily: SERIF, fontStyle:'italic', fontSize: 13, fill: TEXT_2 } }} />
         </ComposedChart>
       </ChartFrame>
       <Caption n="2.1" title="National identification rate and total served, SY2005–06 → SY2023–24"
@@ -468,7 +462,7 @@ function SectionII() {
                  tickFormatter={v => Math.round(v*100) + '%'} />
           <Tooltip content={<CustomTooltip
             labelFormatter={l => rows.find(r => r.yshort === l)?.year || l}
-            formatter={(v, name) => v == null ? '—' : v.toFixed(1) + '% ' + name} />} />
+            formatter={(v) => v == null ? '—' : v.toFixed(1) + '%'} />} />
           {DISAB_ORDER.slice().reverse().map(code => (
             <Area key={code} type="linear" dataKey={code} stackId="1" name={code}
               stroke={DISAB_COLOR[code]} strokeWidth={0.5}
@@ -486,12 +480,12 @@ function SectionII() {
       <div style={{
         marginTop: 18, overflowX: 'auto', border: `1px solid ${RULE_SOFT}`, background: PAPER_2,
       }}>
-        <table style={{ borderCollapse: 'collapse', width: '100%', fontFamily: SERIF, fontSize: 13 }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontFamily: SERIF, fontSize: 15 }}>
           <thead>
             <tr style={{ borderBottom: `1px solid ${RULE}` }}>
               {['Category', first.year, last.year, 'Δ share'].map((h, i) => (
                 <th key={i} style={{ textAlign: i === 0 ? 'left' : 'right', padding: '8px 12px',
-                  fontFamily: MONO, fontSize: 10, color: TEXT_3, letterSpacing: '0.06em', fontWeight: 400 }}>{h}</th>
+                  fontFamily: MONO, fontSize: 14, color: TEXT_3, letterSpacing: '0.03em' }}>{h}</th>
               ))}
             </tr>
           </thead>
@@ -502,7 +496,7 @@ function SectionII() {
                 <tr key={cd} style={{ borderBottom: `1px solid ${RULE_SOFT}` }}>
                   <td style={{ padding: '6px 12px' }}>
                     <span style={{ display:'inline-block', width:9, height:9, background: DISAB_COLOR[cd], marginRight: 8 }} />
-                    <span style={{ fontFamily: MONO, fontSize: 11, color: TEXT_3 }}>{cd}</span>{' '}
+                    <span style={{ fontFamily: MONO, fontSize: 14, color: TEXT_3 }}>{cd}</span>{' '}
                     {PANEL.disabilities[cd]?.label}
                   </td>
                   <td style={{ textAlign:'right', padding:'6px 12px', fontFamily: MONO, fontVariantNumeric:'tabular-nums' }}>{a?.toFixed(1)}</td>
@@ -549,10 +543,10 @@ function SectionIII() {
           <YAxis stroke={TEXT_3} tickLine={false} axisLine={false} tick={AXIS_STYLE}
                  domain={[0, 'dataMax']} tickFormatter={v => v.toFixed(0)}
                  label={{ value: 'index, SY2005–06 = 100', angle: -90, position: 'insideLeft',
-                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 11, fill: TEXT_2 }, dy: 70, dx: 14 }} />
+                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 14, fill: TEXT_2 }, dy: 70, dx: 14 }} />
           <Tooltip content={<CustomTooltip
             labelFormatter={l => rows.find(r => r.yshort === l)?.year || l}
-            formatter={(v, name) => v == null ? '—' : v.toFixed(0) + ' (' + name + ')'} />} />
+            formatter={(v) => v == null ? '—' : v.toFixed(0)} />} />
           <ReferenceLine y={100} stroke={TEXT_3} strokeDasharray="2 4" />
           {focus.map(code => (
             <Line key={code} type="linear" dataKey={code} name={code}
@@ -600,10 +594,10 @@ function SectionIV() {
           <YAxis stroke={TEXT_3} tickLine={false} axisLine={false} tick={AXIS_STYLE}
                  domain={[0, 35]}
                  label={{ value: 'per 1,000 students', angle: -90, position: 'insideLeft',
-                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 11, fill: TEXT_2 }, dy: 60, dx: 14 }} />
+                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 14, fill: TEXT_2 }, dy: 60, dx: 14 }} />
           <Tooltip content={<CustomTooltip
             labelFormatter={l => merged.find(r => r.yshort === l)?.year || l}
-            formatter={(v, name) => v == null ? '—' : v.toFixed(1) + ' / 1,000 (' + name + ')'} />} />
+            formatter={(v) => v == null ? '—' : v.toFixed(1) + ' / 1,000'} />} />
           <Line type="linear" dataKey="idea" name="IDEA administrative"
             stroke={DISAB_COLOR.AUT} strokeWidth={2}
             dot={{ r: 2.5, fill: DISAB_COLOR.AUT, stroke: PAPER, strokeWidth: 1 }} isAnimationActive={false} />
@@ -624,7 +618,7 @@ function SectionIV() {
           <XAxis type="number" stroke={TEXT_3} tickLine={false} axisLine={{ stroke: RULE }}
                  tick={AXIS_STYLE} domain={[0, 'dataMax']} tickFormatter={v => v.toFixed(0)} />
           <YAxis type="category" dataKey="state" stroke={TEXT_3} tickLine={false} axisLine={false}
-                 tick={{ ...AXIS_STYLE, fontSize: 9 }} width={28} interval={0} />
+                 tick={{ ...AXIS_STYLE, fontSize: 14 }} width={28} interval={0} />
           <Tooltip content={<CustomTooltip
             labelFormatter={l => stateName(l)}
             formatter={(v) => v.toFixed(1) + ' / 1,000'} />} />
@@ -675,12 +669,12 @@ function SectionV() {
           <XAxis type="number" stroke={TEXT_3} tickLine={false} axisLine={{ stroke: RULE }}
                  tick={AXIS_STYLE} domain={[0, 24]} tickFormatter={v => v + '%'} />
           <YAxis type="category" dataKey="state" stroke={TEXT_3} tickLine={false} axisLine={false}
-                 tick={{ ...AXIS_STYLE, fontSize: 9 }} width={28} interval={0} />
+                 tick={{ ...AXIS_STYLE, fontSize: 14 }} width={28} interval={0} />
           <Tooltip content={<CustomTooltip labelFormatter={l => stateName(l)}
             formatter={(v) => v.toFixed(2) + '%'} />} />
           <ReferenceLine x={natLast.rate} stroke={INK} strokeDasharray="3 3"
             label={{ position: 'top', value: `US ${natLast.rate.toFixed(1)}%`,
-              style: { fontFamily: SERIF, fontStyle:'italic', fontSize: 10, fill: INK } }} />
+              style: { fontFamily: SERIF, fontStyle:'italic', fontSize: 13, fill: INK } }} />
           <Bar dataKey="rate" name="rate" isAnimationActive={false}>
             {states.map((s, i) => (
               <Cell key={i} fill={(s.state===hi.state||s.state===lo.state) ? ACCENT : ACCENT_2} fillOpacity={0.82} />
@@ -703,9 +697,9 @@ function SectionV() {
           <YAxis stroke={TEXT_3} tickLine={false} axisLine={false} tick={AXIS_STYLE}
                  domain={[8, 16]} tickFormatter={v => v + '%'} />
           <Tooltip content={<CustomTooltip labelFormatter={l => txData.find(d=>d.yshort===l)?.year || l}
-            formatter={(v, name) => v == null ? '—' : v.toFixed(1) + '% (' + name + ')'} />} />
+            formatter={(v) => v == null ? '—' : v.toFixed(1) + '%'} />} />
           <ReferenceLine y={8.5} stroke={ACCENT} strokeDasharray="2 4"
-            label={{ position:'insideBottomRight', value:'TEA 8.5% target', style:{ fontFamily: SERIF, fontStyle:'italic', fontSize: 10, fill: ACCENT } }} />
+            label={{ position:'insideBottomRight', value:'TEA 8.5% target', style:{ fontFamily: SERIF, fontStyle:'italic', fontSize: 13, fill: ACCENT } }} />
           <Line type="linear" dataKey="us" name="United States" stroke={INK} strokeWidth={1.5}
             dot={false} isAnimationActive={false} />
           <Line type="linear" dataKey="tx" name="Texas" stroke={ACCENT} strokeWidth={2}
@@ -768,7 +762,7 @@ function SectionVI() {
             stroke="#5a6b4e" strokeWidth={2} connectNulls={false}
             dot={{ r: 2.5, fill: '#5a6b4e', stroke: PAPER, strokeWidth: 1 }} isAnimationActive={false} />
           <ReferenceLine x="2019" stroke={ACCENT} strokeDasharray="2 4"
-            label={{ position:'top', value:'SY19–20 excluded', style:{ fontFamily: SERIF, fontStyle:'italic', fontSize: 10, fill: ACCENT } }} />
+            label={{ position:'top', value:'SY19–20 excluded', style:{ fontFamily: SERIF, fontStyle:'italic', fontSize: 13, fill: ACCENT } }} />
         </LineChart>
       </ChartFrame>
       <Caption n="6.1" title="National inclusion rate (regular class ≥80% of day), school-age, SY2012–13 → SY2024–25"
@@ -784,7 +778,7 @@ function SectionVI() {
           <XAxis type="number" stroke={TEXT_3} tickLine={false} axisLine={{ stroke: RULE }}
                  tick={AXIS_STYLE} domain={[0, 100]} tickFormatter={v => v + '%'} />
           <YAxis type="category" dataKey="code" stroke={TEXT_3} tickLine={false} axisLine={false}
-                 tick={{ ...AXIS_STYLE, fontSize: 10 }} width={36} interval={0} />
+                 tick={{ ...AXIS_STYLE, fontSize: 13 }} width={36} interval={0} />
           <Tooltip content={<CustomTooltip
             labelFormatter={l2 => PANEL.disabilities[l2]?.label || l2}
             formatter={(v) => v.toFixed(1) + '% included'} />} />
@@ -810,9 +804,9 @@ function SectionVI() {
           <YAxis stroke={TEXT_3} tickLine={false} axisLine={false} tick={AXIS_STYLE}
                  tickFormatter={v => Math.round(v*100) + '%'} />
           <Tooltip content={<CustomTooltip labelFormatter={l2 => env.find(d=>d.yshort===l2)?.year || l2}
-            formatter={(v, name) => v.toFixed(1) + '% — ' + (ENV_LABEL[name]||name)} />} />
+            formatter={(v) => v.toFixed(1) + '%'} />} />
           {ENV_ORDER.slice().reverse().map(k => (
-            <Area key={k} type="linear" dataKey={k} stackId="1" name={k}
+            <Area key={k} type="linear" dataKey={k} stackId="1" name={ENV_LABEL[k]||k}
               stroke={ENV_COLOR[k]} strokeWidth={0.4} fill={ENV_COLOR[k]} fillOpacity={0.85}
               isAnimationActive={false} />
           ))}
@@ -851,9 +845,9 @@ function SectionVII() {
           <YAxis stroke={TEXT_3} tickLine={false} axisLine={false} tick={AXIS_STYLE}
                  domain={[94, 110]} tickFormatter={v => v.toFixed(0)}
                  label={{ value: 'index, SY2018–19 = 100', angle: -90, position: 'insideLeft',
-                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 11, fill: TEXT_2 }, dy: 70, dx: 14 }} />
+                          style: { fontFamily: SERIF, fontStyle: 'italic', fontSize: 14, fill: TEXT_2 }, dy: 70, dx: 14 }} />
           <Tooltip content={<CustomTooltip labelFormatter={l => idx.find(d=>d.yshort===l)?.year || l}
-            formatter={(v, name) => v.toFixed(1) + ' (' + name + ')'} />} />
+            formatter={(v) => v.toFixed(1)} />} />
           <ReferenceArea x1="2019" x2="2021" fill={ACCENT} fillOpacity={0.05} />
           <ReferenceLine y={100} stroke={TEXT_3} strokeDasharray="2 4" />
           <Line type="linear" dataKey="served" name="Served (numerator)"
@@ -877,7 +871,7 @@ function SectionVII() {
           <YAxis stroke={TEXT_3} tickLine={false} axisLine={false} tick={AXIS_STYLE}
                  tickFormatter={v => v + '%'} />
           <Tooltip content={<CustomTooltip labelFormatter={l => yoy.find(d=>d.yshort===l)?.year || l}
-            formatter={(v, name) => (v>0?'+':'') + v.toFixed(2) + '% (' + name + ')'} />} />
+            formatter={(v) => (v>0?'+':'') + v.toFixed(2) + '%'} />} />
           <ReferenceLine y={0} stroke={INK} />
           <Bar dataKey="dS" name="Δ served" fill={ACCENT_2} fillOpacity={0.85} isAnimationActive={false} />
           <Bar dataKey="dE" name="Δ enrolled" fill={ACCENT} fillOpacity={0.85} isAnimationActive={false} />
@@ -907,29 +901,29 @@ function SectionVIII() {
       lede="A descriptive analysis is only as honest as its account of its own threats. Every flag the build process recorded travels inline in meta_dataquality; the largest threats — the Texas cap, the SY2019–20 placement gap — are documented in the chapters because they are external to the ledger."
     >
       <div style={{ overflowX: 'auto', border: `1px solid ${RULE_SOFT}`, background: PAPER_2, marginTop: 8 }}>
-        <table style={{ borderCollapse: 'collapse', width: '100%', fontFamily: SERIF, fontSize: 13 }}>
+        <table style={{ borderCollapse: 'collapse', width: '100%', fontFamily: SERIF, fontSize: 15 }}>
           <thead>
             <tr style={{ borderBottom: `1px solid ${RULE}` }}>
               {['Year','State','Cat.','Issue','Sev.','Description'].map((h,i) => (
                 <th key={i} style={{ textAlign:'left', padding:'8px 10px', fontFamily: MONO,
-                  fontSize: 10, color: TEXT_3, letterSpacing:'0.06em', fontWeight: 400, whiteSpace:'nowrap' }}>{h}</th>
+                  fontSize: 14, color: TEXT_3, letterSpacing:'0.03em', fontWeight: 700, whiteSpace:'nowrap' }}>{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {dq.map((r, i) => (
               <tr key={i} style={{ borderBottom: `1px solid ${RULE_SOFT}`, verticalAlign:'top' }}>
-                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 11, whiteSpace:'nowrap' }}>{r.year || '—'}</td>
-                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 11 }}>{r.state || '—'}</td>
-                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 11 }}>{r.disability || '—'}</td>
-                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 10, color: TEXT_2 }}>{r.issue}</td>
+                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 14, whiteSpace:'nowrap' }}>{r.year || '—'}</td>
+                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 14 }}>{r.state || '—'}</td>
+                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 14 }}>{r.disability || '—'}</td>
+                <td style={{ padding:'6px 10px', fontFamily: MONO, fontSize: 14, color: TEXT_2 }}>{r.issue}</td>
                 <td style={{ padding:'6px 10px' }}>
-                  <span style={{ fontFamily: MONO, fontSize: 9, letterSpacing:'0.08em',
+                  <span style={{ fontFamily: MONO, fontSize: 13, letterSpacing:'0.08em',
                     color: PAPER, background: SEV_COLOR[r.severity] || TEXT_3, padding:'2px 6px', textTransform:'uppercase' }}>
                     {r.severity}
                   </span>
                 </td>
-                <td style={{ padding:'6px 10px', fontSize: 12, color: TEXT_2, lineHeight: 1.45, minWidth: 280 }}>{r.description}</td>
+                <td style={{ padding:'6px 10px', fontSize: 14, color: TEXT_2, lineHeight: 1.45, minWidth: 280 }}>{r.description}</td>
               </tr>
             ))}
           </tbody>
@@ -966,10 +960,10 @@ function SectionIX() {
       lede="The three fact tables cover deliberately different spans. Counts run the full 20 years; the enrollment denominator stops at SY2023–24 (so the rate does too); placement begins only at SY2012–13. The asymmetry is structural, not an error."
     >
       <div style={{ overflowX: 'auto', border: `1px solid ${RULE_SOFT}`, background: PAPER_2, marginTop: 8 }}>
-        <table style={{ borderCollapse: 'collapse', fontFamily: MONO, fontSize: 10 }}>
+        <table style={{ borderCollapse: 'collapse', fontFamily: MONO, fontSize: 14 }}>
           <thead>
             <tr style={{ borderBottom: `1px solid ${RULE}` }}>
-              <th style={{ textAlign:'left', padding:'8px 10px', color: TEXT_3, letterSpacing:'0.06em', position:'sticky', left:0, background: PAPER_2 }}>Table</th>
+              <th style={{ textAlign:'left', padding:'8px 10px', color: TEXT_3, fontWeight: 700, letterSpacing:'0.03em', position:'sticky', left:0, background: PAPER_2 }}>Table</th>
               {years.map(y => (
                 <th key={y} style={{ padding:'8px 4px', color: TEXT_3, fontWeight: 400 }}>{y.slice(2)}</th>
               ))}
@@ -978,7 +972,7 @@ function SectionIX() {
           <tbody>
             {tables.map(([tbl, label]) => (
               <tr key={tbl} style={{ borderBottom: `1px solid ${RULE_SOFT}` }}>
-                <td style={{ padding:'6px 10px', fontFamily: SERIF, fontSize: 12, color: INK, whiteSpace:'nowrap', position:'sticky', left:0, background: PAPER_2 }}>
+                <td style={{ padding:'6px 10px', fontFamily: SERIF, fontSize: 14, color: INK, whiteSpace:'nowrap', position:'sticky', left:0, background: PAPER_2 }}>
                   {label}
                 </td>
                 {years.map(y => {
@@ -1004,7 +998,7 @@ function SectionIX() {
         {Object.entries(PANEL.row_counts).filter(([k]) => k.startsWith('fact') || k.startsWith('dim') || k.startsWith('meta'))
           .sort((a,b) => b[1]-a[1]).map(([k,v]) => (
           <div key={k} style={{ borderTop: `1px solid ${RULE_SOFT}`, paddingTop: 8 }}>
-            <div style={{ fontFamily: MONO, fontSize: 10, color: TEXT_3 }}>{k}</div>
+            <div style={{ fontFamily: MONO, fontSize: 14, color: TEXT_3 }}>{k}</div>
             <div style={{ fontFamily: SERIF, fontSize: 22, color: INK, marginTop: 2 }}>{v.toLocaleString()}</div>
           </div>
         ))}
@@ -1022,7 +1016,7 @@ function SectionX() {
       id="X-colophon" num={10} kicker="Colophon" title="Sources & Method"
       lede="Every figure is computed from a single assembled SQLite dataset; each chapter's notebook regenerates that chapter's figures from the dataset alone."
     >
-      <div style={{ fontFamily: SERIF, fontSize: 14, color: TEXT_2, lineHeight: 1.7, maxWidth: 680 }}>
+      <div style={{ fontFamily: SERIF, fontSize: 16, color: TEXT_2, lineHeight: 1.7, maxWidth: 680 }}>
         <p>
           <strong style={{ color: INK }}>Numerator.</strong> OSEP IDEA §618 Part B Child Count (and,
           from SY2012–13, Educational Environments) — state-level counts by federal disability
@@ -1036,18 +1030,18 @@ function SectionX() {
         </p>
         <p>
           <strong style={{ color: INK }}>Build.</strong> The panel is assembled by{' '}
-          <code style={{ fontFamily: MONO, fontSize: 12 }}>_shared/build.py</code> into{' '}
-          <code style={{ fontFamily: MONO, fontSize: 12 }}>idea_db_v2.sqlite</code>; source URLs and
-          SHA-256 hashes are in <code style={{ fontFamily: MONO, fontSize: 12 }}>sources_manifest.json</code>.
+          <code style={{ fontFamily: CODE, fontWeight: 600, fontSize: 14 }}>_shared/build.py</code> into{' '}
+          <code style={{ fontFamily: CODE, fontWeight: 600, fontSize: 14 }}>idea_db_v2.sqlite</code>; source URLs and
+          SHA-256 hashes are in <code style={{ fontFamily: CODE, fontWeight: 600, fontSize: 14 }}>sources_manifest.json</code>.
           This dashboard embeds a JSON extract of that database, so it runs with no backend.
         </p>
       </div>
       <div style={{ marginTop: 24, borderTop: `1px solid ${RULE}`, paddingTop: 16 }}>
-        <SmallCaps style={{ fontSize: 10, color: TEXT_3, display:'block', marginBottom: 10 }}>Source ledger — meta_source</SmallCaps>
+        <SmallCaps style={{ fontSize: 13, color: TEXT_3, fontWeight: 700, display:'block', marginBottom: 10 }}>Source ledger — meta_source</SmallCaps>
         <div style={{ display:'grid', gap: 8 }}>
           {PANEL.sources.slice(0, 12).map((s, i) => (
-            <div key={i} style={{ fontFamily: SERIF, fontSize: 12.5, color: TEXT_2, lineHeight: 1.5 }}>
-              <span style={{ fontFamily: MONO, fontSize: 10, color: ACCENT, marginRight: 8 }}>{s.cls}</span>
+            <div key={i} style={{ fontFamily: SERIF, fontSize: 15, color: TEXT_2, lineHeight: 1.5 }}>
+              <span style={{ fontFamily: MONO, fontSize: 14, color: ACCENT, marginRight: 8 }}>{s.cls}</span>
               {s.desc} {s.year && <span style={{ color: TEXT_4 }}>· {s.year}</span>}
             </div>
           ))}
@@ -1187,25 +1181,25 @@ function ChapterCard({ ch, onJump }) {
   const notebookUrl = `${REPO_BASE}/${ch.slug}`;
   return (
     <article style={{
-      border: `1px solid ${RULE}`, background: PAPER_2, padding: 'clamp(16px,3vw,24px)',
+      border: `1px solid ${RULE}`, background: PAPER_2, padding: 'clamp(18px,3vw,25px)',
       marginBottom: 20,
     }}>
       <div style={{ display:'flex', gap: 14, alignItems:'baseline', flexWrap:'wrap', marginBottom: 10 }}>
-        <span style={{ fontFamily: SERIF, fontSize: 'clamp(34px,6vw,46px)', lineHeight: 0.9,
+        <span style={{ fontFamily: SERIF, fontSize: 'clamp(36px,6vw,46px)', lineHeight: 0.9,
           color: ACCENT, fontWeight: 400 }}>{ROMAN[ch.n]}</span>
         <div style={{ flex: 1, minWidth: 200 }}>
-          <SmallCaps style={{ fontSize: 10, color: TEXT_3 }}>Chapter {ch.n}</SmallCaps>
-          <h3 style={{ fontFamily: SERIF, fontSize: 'clamp(18px,2.6vw,23px)', color: INK,
+          <SmallCaps style={{ fontSize: 13, color: TEXT_3 }}>Chapter {ch.n}</SmallCaps>
+          <h3 style={{ fontFamily: SERIF, fontSize: 'clamp(20px,2.6vw,24px)', color: INK,
             fontWeight: 400, lineHeight: 1.1, margin: '4px 0 0 0', letterSpacing: '-0.01em' }}>{ch.title}</h3>
-          <div style={{ fontFamily: SERIF, fontStyle:'italic', fontSize: 13, color: TEXT_2, marginTop: 4 }}>{ch.topic}</div>
+          <div style={{ fontFamily: SERIF, fontStyle:'italic', fontSize: 15, color: TEXT_2, marginTop: 4 }}>{ch.topic}</div>
         </div>
       </div>
-      <p style={{ fontFamily: SERIF, fontSize: 14, color: TEXT_2, lineHeight: 1.6, margin: '8px 0 14px 0' }}>
+      <p style={{ fontFamily: SERIF, fontSize: 16, color: TEXT_2, lineHeight: 1.6, margin: '8px 0 14px 0' }}>
         {ch.abstract}
       </p>
       <ul style={{ margin: '0 0 16px 0', padding: 0, listStyle: 'none' }}>
         {ch.findings.map((f, i) => (
-          <li key={i} style={{ fontFamily: SERIF, fontSize: 13, color: INK, lineHeight: 1.5,
+          <li key={i} style={{ fontFamily: SERIF, fontSize: 15, color: INK, lineHeight: 1.5,
             paddingLeft: 18, position: 'relative', marginBottom: 4 }}>
             <span style={{ position:'absolute', left: 0, color: ACCENT }}>—</span>{f}
           </li>
@@ -1230,17 +1224,17 @@ function ChapterCard({ ch, onJump }) {
       <div style={{ display:'flex', gap: 16, flexWrap:'wrap', alignItems:'center',
         borderTop: `1px solid ${RULE_SOFT}`, paddingTop: 12 }}>
         <a href={chapterUrl} target="_blank" rel="noopener noreferrer"
-           style={{ fontFamily: SERIF, fontSize: 13, color: ACCENT, textDecoration:'none', fontStyle:'italic' }}>
+           style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 17, color: ACCENT, textDecoration:'underline', textUnderlineOffset: '3px' }}>
           Read chapter ↗
         </a>
         <a href={notebookUrl} target="_blank" rel="noopener noreferrer"
-           style={{ fontFamily: MONO, fontSize: 11, color: TEXT_3, textDecoration:'none' }}>
-          notebook &amp; figures ↗
+           style={{ fontFamily: SERIF, fontWeight: 600, fontSize: 17, color: ACCENT, textDecoration:'underline', textUnderlineOffset: '3px' }}>
+          Notebook &amp; figures ↗
         </a>
         {ch.tab && (
           <button onClick={() => onJump(ch.tab)}
             style={{ marginLeft:'auto', background:'transparent', border:`1px solid ${RULE}`,
-              cursor:'pointer', fontFamily: SERIF, fontSize: 12, color: INK, padding:'6px 12px' }}
+              cursor:'pointer', fontFamily: SERIF, fontWeight: 600, fontSize: 15, color: INK, padding:'7px 14px' }}
             onMouseEnter={e=>{e.currentTarget.style.borderColor=ACCENT; e.currentTarget.style.color=ACCENT;}}
             onMouseLeave={e=>{e.currentTarget.style.borderColor=RULE; e.currentTarget.style.color=INK;}}>
             See the live figures →
@@ -1254,12 +1248,12 @@ function ChapterCard({ ch, onJump }) {
 function Whitepaper({ onJump }) {
   return (
     <section style={{ paddingTop: 40, paddingBottom: 24 }}>
-      <SmallCaps style={{ fontSize: 11, color: ACCENT }}>The Monograph</SmallCaps>
-      <h2 style={{ fontFamily: SERIF, color: INK, fontSize: 'clamp(22px,3.6vw,30px)', fontWeight: 400,
+      <SmallCaps style={{ fontSize: 14, color: ACCENT }}>The Monograph</SmallCaps>
+      <h2 style={{ fontFamily: SERIF, color: INK, fontSize: 'clamp(24px,3.6vw,31px)', fontWeight: 400,
         lineHeight: 1.1, marginTop: 8, marginBottom: 16, letterSpacing: '-0.01em' }}>
         Twenty Years of Special-Education Identification
       </h2>
-      <p style={{ fontFamily: SERIF, color: TEXT_2, fontSize: 'clamp(15px,1.8vw,17px)', lineHeight: 1.65, maxWidth: 680 }}>
+      <p style={{ fontFamily: SERIF, color: TEXT_2, fontSize: 'clamp(16px,1.8vw,18px)', lineHeight: 1.65, maxWidth: 680 }}>
         The full analysis is an eight-chapter monograph (Markdown + LaTeX, each chapter reproducible
         from its own notebook). Each card below links to the rendered chapter and its notebook in the
         repository, where the math and figures render natively, and to the corresponding live,
@@ -1270,7 +1264,7 @@ function Whitepaper({ onJump }) {
       </div>
       <div style={{ borderTop: `1px solid ${RULE}`, paddingTop: 16, marginTop: 8 }}>
         <a href={REPO_BASE} target="_blank" rel="noopener noreferrer"
-           style={{ fontFamily: SERIF, fontSize: 14, color: ACCENT, textDecoration:'none', fontStyle:'italic' }}>
+           style={{ fontFamily: SERIF, fontSize: 16, color: ACCENT, textDecoration:'none', fontStyle:'italic' }}>
           Browse the full repository ↗
         </a>
       </div>
@@ -1286,27 +1280,27 @@ function SiteFooter() {
     <footer style={{
       marginTop: 48, paddingTop: 24, paddingBottom: 24, borderTop: `2px solid ${INK}`,
       display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 24,
-      fontFamily: SERIF, fontSize: 13, color: TEXT_2, lineHeight: 1.55,
+      fontFamily: SERIF, fontSize: 15, color: TEXT_2, lineHeight: 1.55,
     }}>
       <div>
-        <SmallCaps style={{ fontSize: 10, color: TEXT_3, display:'block', marginBottom: 6 }}>Project</SmallCaps>
+        <SmallCaps style={{ fontSize: 13, color: TEXT_3, display:'block', marginBottom: 6 }}>Project</SmallCaps>
         <strong style={{ color: INK }}>idea_db_v2</strong>
         <div style={{ fontStyle:'italic', marginTop: 4 }}>
           A state-by-category SQLite panel of U.S. IDEA Part&nbsp;B identification, SY2005&ndash;06 through SY2024&ndash;25.
         </div>
       </div>
       <div>
-        <SmallCaps style={{ fontSize: 10, color: TEXT_3, display:'block', marginBottom: 6 }}>Source &amp; data</SmallCaps>
+        <SmallCaps style={{ fontSize: 13, color: TEXT_3, fontWeight: 700, display:'block', marginBottom: 6 }}>Source &amp; data</SmallCaps>
         <a href={REPO_BASE} target="_blank" rel="noopener noreferrer" style={{ color: ACCENT, textDecoration:'none' }}>
           View on GitHub ↗
         </a>
-        <div style={{ marginTop: 4, fontFamily: MONO, fontSize: 11, color: TEXT_3 }}>
+        <div style={{ marginTop: 4, fontFamily: MONO, fontSize: 14, color: TEXT_3 }}>
           dataset · notebooks · build.py
         </div>
       </div>
       <div>
-        <SmallCaps style={{ fontSize: 10, color: TEXT_3, display:'block', marginBottom: 6 }}>Citation</SmallCaps>
-        <div style={{ fontSize: 12, lineHeight: 1.5 }}>
+        <SmallCaps style={{ fontSize: 13, color: TEXT_3, display:'block', marginBottom: 6 }}>Citation</SmallCaps>
+        <div style={{ fontSize: 14, lineHeight: 1.5 }}>
           Kim, Won G., &amp; Choi, Pilsun. (2026). <em>Twenty Years of Special-Education Identification
           in the United States: A State-by-Category Descriptive Analysis, 2005&ndash;2025</em>{' '}
           [Data dashboard].{' '}
@@ -1316,8 +1310,8 @@ function SiteFooter() {
         </div>
       </div>
       <div>
-        <SmallCaps style={{ fontSize: 10, color: TEXT_3, display:'block', marginBottom: 6 }}>Acknowledgment</SmallCaps>
-        <div style={{ fontSize: 12, lineHeight: 1.5 }}>
+        <SmallCaps style={{ fontSize: 13, color: TEXT_3, display:'block', marginBottom: 6 }}>Acknowledgment</SmallCaps>
+        <div style={{ fontSize: 14, lineHeight: 1.5 }}>
           Developed at the request of <strong style={{ color: INK }}>Won G. Kim</strong>,
           Associate Professor,{' '}
           <a href="https://www.tamiu.edu/coedu/index.shtml" target="_blank" rel="noopener noreferrer"
@@ -1364,13 +1358,13 @@ function TabBar({ active, onSelect }) {
               <button onClick={() => onSelect(tab.id)} style={{
                 background:'transparent', border:'none',
                 borderBottom: isActive ? `2px solid ${INK}` : '2px solid transparent',
-                cursor:'pointer', padding:'12px 14px', fontFamily: SERIF, fontSize: 13,
+                cursor:'pointer', padding:'12px 14px', fontFamily: SERIF, fontSize: 15,
                 color: isActive ? INK : TEXT_3, fontWeight: 400,
                 display:'flex', alignItems:'baseline', gap: 8, transition:'color 0.15s, border-color 0.15s',
               }}
               onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = INK; }}
               onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = TEXT_3; }}>
-                <span style={{ fontFamily: MONO, fontSize: 10, color: isActive ? ACCENT : TEXT_4, letterSpacing:'0.06em' }}>
+                <span style={{ fontFamily: MONO, fontSize: 14, color: isActive ? ACCENT : TEXT_4, letterSpacing:'0.03em' }}>
                   {tab.num}
                 </span>
                 <span>{tab.label}</span>
