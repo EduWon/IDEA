@@ -132,7 +132,7 @@ public-school PK–12 fall enrollment. The state-level identification rate
 is
 
 $$
-r_{s,t} = 100 \times \frac{N_{s,t}}{E_{s,t}} \qquad (\%),
+r_{s,t} = 100 \times \frac{N_{s,t}}{E_{s,t}} \qquad (\text{%}),
 $$
 
 and the national rate aggregates before dividing,
@@ -182,7 +182,7 @@ imputed — the sum over the 13 federal categories equals the reported "All
 Disabilities" figure **for that band**:
 
 $$
-\sum_{c \,\in\, 13\text{ cats}} n_{s,t,c,b} = n_{s,t,\text{ALL},b}, \qquad b \in \{\text{3-5},\ \text{6-21}\}.
+\sum_{c \in 13\text{ cats}} n_{s,t,c,b} = n_{s,t,\text{ALL},b}, \qquad b \in \lbrace \text{3-5}, \text{6-21} \rbrace.
 $$
 
 This held with **zero violations** across the post-2012 panel. But the
@@ -196,7 +196,7 @@ category-summed total, while the independently read
 one-sided inequality at the aggregate level:
 
 $$
-n_{s,t,\text{ALL},\text{ALL}} \ge \sum_{c \,\in\, 13\text{ cats}} n_{s,t,c,\text{ALL}},
+n_{s,t,\text{ALL},\text{ALL}} \ge \sum_{c \in 13\text{ cats}} n_{s,t,c,\text{ALL}},
 $$
 
 with strict inequality wherever any category carries an incomplete band.

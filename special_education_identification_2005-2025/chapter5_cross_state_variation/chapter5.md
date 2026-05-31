@@ -59,7 +59,7 @@ SY2005-06 rate against its SY2023-24 rate; the points hug the diagonal, and
 the Spearman rank correlation between the two endpoints is
 
 $$
-\rho_{\text{2005-06},\,\text{2023-24}} = 0.79 .
+\rho_{\text{2005-06}, \text{2023-24}} = 0.79 .
 $$
 
 A correlation this high across a 19-year gap means the ordering of states

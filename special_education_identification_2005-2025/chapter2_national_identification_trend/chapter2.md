@@ -167,7 +167,7 @@ change *across* the seam is anomalously large relative to adjacent
 within-edition year-to-year changes. It is not:
 
 $$
-\Delta R_{\text{2010-11}\to\text{2011-12}} = -0.078\ \text{pp},
+\Delta R_{\text{2010-11}\to\text{2011-12}} = -0.078 \text{pp},
 $$
 
 which is smaller in magnitude than the within-edition changes immediately
