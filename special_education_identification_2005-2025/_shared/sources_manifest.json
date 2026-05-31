@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.1",
+  "description": "OSEP \u00a7618 Part B Child Count raw files + NCES Digest 203.20 enrollment denominator, SY 2005-06 to SY 2024-25",
+  "verified_against": "v1 idea_db README SHA-256 hashes (OSEP); fresh download (NCES)",
+  "verified_on": "2026-05-29",
+  "osep_618_files": [
+    {
+      "school_year": "2005-06",
+      "source_id": "osep_618_2005_06",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/5705ed33-4ed6-41d1-bbe2-2f449ead31fa/download/bchildcount2005.csv",
+      "filename": "bchildcount2005.csv",
+      "sha256": "33547aefb942dbe2df5b77f776f82ce62bdf1bd5c976be0e2ab22ee02e4a59ec"
+    },
+    {
+      "school_year": "2006-07",
+      "source_id": "osep_618_2006_07",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/e1f0798c-c8b6-400f-b3ab-b5ecf1dccce0/download/bchildcount2006.csv",
+      "filename": "bchildcount2006.csv",
+      "sha256": "36286e942241a6048fa42f0fcd6c4026571b975d728c9c453c0502ea53efad44"
+    },
+    {
+      "school_year": "2007-08",
+      "source_id": "osep_618_2007_08",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/70f16eb8-c2f1-47cb-b07d-aef15f64bb2a/download/bchildcount2007.csv",
+      "filename": "bchildcount2007.csv",
+      "sha256": "38b398c758da0e7f4bcb9b661cd860315068bc162e69e4783936430597785f51"
+    },
+    {
+      "school_year": "2008-09",
+      "source_id": "osep_618_2008_09",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/7c4a1e3d-b3b9-4860-a3b1-2dc04dc63c3d/download/bchildcount2008.csv",
+      "filename": "bchildcount2008.csv",
+      "sha256": "9023ea558df7148f8f0f87e112650a7141f256612c7a2d189cc15d1e11099de7"
+    },
+    {
+      "school_year": "2009-10",
+      "source_id": "osep_618_2009_10",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/d77b5e44-e178-462c-b73c-3bfa2d961236/download/bchildcount2009.csv",
+      "filename": "bchildcount2009.csv",
+      "sha256": "3744a3e3ae4c5375f4e525b82783e3006d4da2686e9d131d23519c52072d846d"
+    },
+    {
+      "school_year": "2010-11",
+      "source_id": "osep_618_2010_11",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/034b147d-4ad1-4be9-abfe-11ae14f5c981/download/bchildcount2010.csv",
+      "filename": "bchildcount2010.csv",
+      "sha256": "ae6651010893ba65cdebd2cffdc08ba770b84abe9b822a0e7392b0b741832b13"
+    },
+    {
+      "school_year": "2011-12",
+      "source_id": "osep_618_2011_12",
+      "era": "pre_2012",
+      "format": "Child Count only (no environments)",
+      "url": "https://data.ed.gov/dataset/207550d8-e977-448a-bf44-15e35104b9d1/resource/b05fd943-94f4-43cd-8fae-bf15e4a19ef5/download/bchildcount2011.csv",
+      "filename": "bchildcount2011.csv",
+      "sha256": "326dfe5caa0a0c5ef7eadfae812f2b7c0370528866b339a13407bbaa20b5929b"
+    },
+    {
+      "school_year": "2012-13",
+      "source_id": "osep_618_2012_13",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/be8653e8-3c4f-476e-bf57-db028c9cad97/download/bchildcountandedenvironments2012.csv",
+      "filename": "bchildcountandedenvironments2012.csv",
+      "sha256": "0cce3a633ff106d243f19a0a758983af23272d7dc7bc980a36b3095ff121be22"
+    },
+    {
+      "school_year": "2013-14",
+      "source_id": "osep_618_2013_14",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/1ab4845e-77c3-4aa5-a3d5-1a06df66ae45/download/bchildcountandedenvironments2013.csv",
+      "filename": "bchildcountandedenvironments2013.csv",
+      "sha256": "86f3143005606efdb79b686942a8bc5f7d91943a2f6d1f6370c8824790b387be"
+    },
+    {
+      "school_year": "2014-15",
+      "source_id": "osep_618_2014_15",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/9e399910-ae82-4153-a944-40ac45bcfa99/download/bchildcountandedenvironments2014.csv",
+      "filename": "bchildcountandedenvironments2014.csv",
+      "sha256": "69b2b01781db217b86220f3182d1c8a3c1c09403feac01d4476ec6e44d1d6f40"
+    },
+    {
+      "school_year": "2015-16",
+      "source_id": "osep_618_2015_16",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/b539c6c9-b185-4f8d-ad59-f5410e67ff18/download/bchildcountandedenvironments2015.csv",
+      "filename": "bchildcountandedenvironments2015.csv",
+      "sha256": "6b3dfea7ceb84e22d235ace15e0a88b0851d0c7a6737352c762c0044a95b6224"
+    },
+    {
+      "school_year": "2016-17",
+      "source_id": "osep_618_2016_17",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/2cb35a62-38bd-4d81-bdc2-2d59ef8bb1a5/download/bchildcountandedenvironments2016.csv",
+      "filename": "bchildcountandedenvironments2016.csv",
+      "sha256": "105832b8d7f3b3744d85deda1fe37945c08e08c5aed9d3195c6a21743ba2f726"
+    },
+    {
+      "school_year": "2017-18",
+      "source_id": "osep_618_2017_18",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/28717e8d-6917-4b6c-85b2-ab49891cf2eb/download/bchildcountandedenvironments2017-18.csv",
+      "filename": "bchildcountandedenvironments2017-18.csv",
+      "sha256": "e2a3ba581b7f2dc322ad41f60ff4e3be1dd5218e865116f6c84e803c84c51645"
+    },
+    {
+      "school_year": "2018-19",
+      "source_id": "osep_618_2018_19",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/f0a864b2-326a-4f5c-9156-dfa3b6056812/download/bchildcountandedenvironments2018-19.csv",
+      "filename": "bchildcountandedenvironments2018-19.csv",
+      "sha256": "4e37deeb54bf00f459d3a4be8f9bd38bf4c65767d3ee847ea29fb95d4cba8de3"
+    },
+    {
+      "school_year": "2019-20",
+      "source_id": "osep_618_2019_20",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/c49009eb-a269-4131-9bbe-7d8a3f67f649/download/bchildcountandedenvironments2019-20.csv",
+      "filename": "bchildcountandedenvironments2019-20.csv",
+      "sha256": "0bed269e224884a3f30b9f9c991b136b146ef2611e0da1d81225d9aa46c20791"
+    },
+    {
+      "school_year": "2020-21",
+      "source_id": "osep_618_2020_21",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/c515f168-be9c-4505-a6d7-d52a47b9b2b7/download/bchildcountandedenvironment2020-21.csv",
+      "filename": "bchildcountandedenvironment2020-21.csv",
+      "sha256": "d6bdaafbe36ee7d7868dbfc03e5f782c8047b1ee6b2614f109e0f257b4cf4f9e"
+    },
+    {
+      "school_year": "2021-22",
+      "source_id": "osep_618_2021_22",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/22294e78-ff8b-48cf-8f5e-5a84f183ec22/download/bchildcountandedenvironment2021-22.csv",
+      "filename": "bchildcountandedenvironment2021-22.csv",
+      "sha256": "113c7501e311571074c65e2fd74cf19b102644b3858a77b51d1ddf0aca9fbfae"
+    },
+    {
+      "school_year": "2022-23",
+      "source_id": "osep_618_2022_23",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/91dfcdc0-7e9b-4945-8319-684f9ffd2a24/download/bchildcountandedenvironment2022-23.csv",
+      "filename": "bchildcountandedenvironment2022-23.csv",
+      "sha256": "cd38edb4daca95c4b53df8050f93fcd2c18a2b5d13da97f871a8f80af418c734"
+    },
+    {
+      "school_year": "2023-24",
+      "source_id": "osep_618_2023_24",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/aa572553-f494-49a6-a01e-99c52f0cf948/download/bchildcountandedenvironment2023-24.csv",
+      "filename": "bchildcountandedenvironment2023-24.csv",
+      "sha256": "39b4da8f340a71da5a96068b333c2d83f347ac4c587fb13c9ecf773a23a8d8cb"
+    },
+    {
+      "school_year": "2024-25",
+      "source_id": "osep_618_2024_25",
+      "era": "post_2012",
+      "format": "Child Count + Educational Environments (combined)",
+      "url": "https://data.ed.gov/dataset/71ca7d0c-a161-4abe-9e2b-4e68ffb1061a/resource/fdc6eb2c-4a4e-44ef-8b3d-01e68671e47c/download/bchildcountandedenvironment2024-25.csv",
+      "filename": "bchildcountandedenvironment2024-25.csv",
+      "sha256": "d77789297b594b20dd93561338fd09cbe68d6c6a4c5fa01b4d4142eb6d151f52"
+    }
+  ],
+  "nces_enrollment_files": [
+    {
+      "source_id": "nces_d13_203_20",
+      "source_class": "NCES_DIGEST",
+      "table": "203.20",
+      "edition": "Digest 2013 (d13)",
+      "purpose": "PK-12 state enrollment denominator, SY 2005-06 to SY 2010-11 (6 years actual)",
+      "years_actual": [
+        "1990-91",
+        "2000-01",
+        "2001-02",
+        "2002-03",
+        "2003-04",
+        "2004-05",
+        "2005-06",
+        "2006-07",
+        "2007-08",
+        "2008-09",
+        "2009-10",
+        "2010-11",
+        "2011-12",
+        "2012-13",
+        "2013-14",
+        "2014-15"
+      ],
+      "years_used_in_v2": [
+        "2005-06",
+        "2006-07",
+        "2007-08",
+        "2008-09",
+        "2009-10",
+        "2010-11"
+      ],
+      "url": "https://nces.ed.gov/programs/digest/d13/tables/xls/tabn203.20.xls",
+      "filename": "tabn203.20_d13.xls",
+      "sha256": "e8019e10e1cc60d196b1d7d04d0b3610bf74d8c5b3bee0ab8cc3711ca4874cf8"
+    },
+    {
+      "source_id": "nces_d24_203_20",
+      "source_class": "NCES_DIGEST",
+      "table": "203.20",
+      "edition": "Digest 2024 (d24)",
+      "purpose": "PK-12 state enrollment denominator, SY 2011-12 to SY 2023-24 (13 years actual)",
+      "years_actual": [
+        "1990-91",
+        "2000-01",
+        "2011-12",
+        "2012-13",
+        "2013-14",
+        "2014-15",
+        "2015-16",
+        "2016-17",
+        "2017-18",
+        "2018-19",
+        "2019-20",
+        "2020-21",
+        "2021-22",
+        "2022-23",
+        "2023-24"
+      ],
+      "years_used_in_v2": [
+        "2011-12",
+        "2012-13",
+        "2013-14",
+        "2014-15",
+        "2015-16",
+        "2016-17",
+        "2017-18",
+        "2018-19",
+        "2019-20",
+        "2020-21",
+        "2021-22",
+        "2022-23",
+        "2023-24"
+      ],
+      "url": "https://nces.ed.gov/programs/digest/d24/tables/xls/tabn203.20.xlsx",
+      "filename": "tabn203.20_d24.xlsx",
+      "sha256": "8e370b60d62ab13327c3aa8ff2275c70a063e81d96fda050e19b3371178b6226"
+    }
+  ],
+  "coverage_notes": {
+    "disability_counts": "SY 2005-06 through SY 2024-25 (20 years) from OSEP",
+    "enrollment_denominator": "SY 2005-06 through SY 2023-24 (19 years) from NCES Digest",
+    "identification_rate": "Computable for 19 years (SY 2005-06 through SY 2023-24). SY 2024-25 enrollment pending NCES Digest 2025 release (expected December 2025)."
+  }
+}
