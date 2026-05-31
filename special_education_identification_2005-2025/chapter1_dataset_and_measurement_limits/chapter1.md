@@ -132,7 +132,7 @@ public-school PK–12 fall enrollment. The state-level identification rate
 is
 
 $$
-r_{s,t} = 100 \times \frac{N_{s,t}}{E_{s,t}} \qquad (\text{%}),
+r_{s,t} = 100 \times \frac{N_{s,t}}{E_{s,t}} \qquad (％),
 $$
 
 and the national rate aggregates before dividing,

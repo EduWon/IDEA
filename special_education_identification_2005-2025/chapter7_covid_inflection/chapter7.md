@@ -26,7 +26,7 @@ $$
 The components for SY2020-21 are unambiguous:
 
 $$
-\Delta S = +0.30\text{%}, \qquad \Delta E = -2.80\text{%}, \qquad \Delta R = +0.44 \text{pp}.
+\Delta S = +0.30％, \qquad \Delta E = -2.80％, \qquad \Delta R = +0.44 \text{pp}.
 $$
 
 The served population barely moved; enrollment dropped 2.8% as families
