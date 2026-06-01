@@ -12,6 +12,10 @@ Figure 2.1 shows the series with three regimes marked.
 
 ![Figure 2.1 — National rate with three regimes](figures/fig2_1_rate_phases.png)
 
+*National rate uses included states only (min 47 of 51 in suppressed
+years); a state with a suppressed child count is excluded from both the
+numerator and the denominator.*
+
 The rate falls from **13.67%** in SY2005-06 to a trough of **12.92%** in
 SY2012-13–SY2013-14, then rises to **15.82%** by SY2023-24 — its highest
 point in the window and, per NCES, an all-time high in the longer national
@@ -54,6 +58,10 @@ than the served population. Figure 2.2 indexes both series to SY2005-06 so
 the two forces can be read directly.
 
 ![Figure 2.2 — Numerator/denominator decomposition](figures/fig2_2_decomposition.png)
+
+*Included-states basis (min 47 of 51 in suppressed years): absolute totals
+dip where states are excluded, so the index partly reflects panel
+composition, not identification behavior alone.*
 
 The enrollment line (blue) stays within a few percent of its SY2005-06
 level across the whole window — it never drives the rate. Its visible dip
@@ -195,10 +203,11 @@ rate), with two exceptions that the decomposition isolates: enrollment does
 not drive the trend — apart from a coverage wobble at SY2016-17–SY2017-18,
 where suppressed-count states leave the denominator, it moves little — and
 the single SY2020-21 step is a denominator-shrinkage artifact of the
-pandemic rather than expanded identification. The aggregate trend conceals offsetting category movements
-(Chapters 3–4) and carries no built-in normative reading, since this
-aggregate, uncontrolled series cannot adjudicate the over- versus
-under-identification debate (Chapter 5). The U's trough coincides with the
+pandemic rather than expanded identification. The aggregate trend conceals
+offsetting category movements (Chapters 3–4) and carries no built-in
+normative reading, since this aggregate, uncontrolled series cannot
+adjudicate the over- versus under-identification debate (Chapter 5). The
+U's trough coincides with the
 NCES edition seam; the seam shows no anomalous jump, but the trough's exact
 depth cannot be certified from this dataset.
 

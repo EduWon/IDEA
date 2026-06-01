@@ -86,6 +86,11 @@ Texas rate against the national rate.
 
 ![Figure 5.2 — The Texas cap](figures/fig5_2_texas_cap.png)
 
+*National rate uses included states only (min 47 of 51 in suppressed
+years); a state with a suppressed child count is excluded from both the
+numerator and the denominator. Texas is a state-level series and is
+unaffected.*
+
 Texas entered the window at 11.2% in SY2005-06 — already below the national
 13.7% — and then declined steadily to a trough of **8.6%** in SY2013-14 and
 SY2014-15, even as the national rate held near 13%. It then reversed

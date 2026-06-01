@@ -116,6 +116,9 @@ SY2011-12–SY2013-14, then rises to about 15.8% by SY2023-24. The dashed
 line marks the NCES edition seam. The bottom of the U coincides with the
 seam, which is exactly why the apparent inflection cannot be attributed to
 real-world identification dynamics on the strength of this dataset alone.
+The series uses included states only (min 47 of 51 in suppressed years),
+excluding any state with a suppressed child count from both the numerator
+and the denominator.
 
 ## 1.4 The one defined metric and its built-in biases
 
