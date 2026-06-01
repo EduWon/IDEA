@@ -19,7 +19,7 @@ taxonomy is a different classification and is not comparable. The inclusion
 metric is
 
 $$
-\text{inclusion}_{80} = 100 \times \frac{n_{\text{inside\_80}}}{n_{\text{total school age}}},
+\text{inclusion}_{80} = 100 \times \frac{n_{\text{inside}\geq 80％}}{n_{\text{total school age}}},
 $$
 
 where the denominator is the sum across all nine OSEP placement groups for
