@@ -12,8 +12,8 @@ Figure 2.1 shows the series with three regimes marked.
 
 ![Figure 2.1 — National rate with three regimes](figures/fig2_1_rate_phases.png)
 
-The rate falls from **13.67%** in SY2005-06 to a trough of **12.89%** in
-SY2012-13–SY2013-14, then rises to **15.72%** by SY2023-24 — its highest
+The rate falls from **13.67%** in SY2005-06 to a trough of **12.92%** in
+SY2012-13–SY2013-14, then rises to **15.82%** by SY2023-24 — its highest
 point in the window and, per NCES, an all-time high in the longer national
 series. The official NCES summary describes the same upward movement over
 its shorter SY2012-13 baseline, reporting served students rising from
@@ -55,20 +55,25 @@ the two forces can be read directly.
 
 ![Figure 2.2 — Numerator/denominator decomposition](figures/fig2_2_decomposition.png)
 
-The enrollment line (blue) is nearly flat across the whole window: PK–12
-enrollment grew about 3% from SY2005-06 to its SY2019-20 peak, then fell
-back. The served line (red) does almost all of the work — and it is the
-red line, not the blue, that produces the U. Table 2.1 quantifies each
-regime boundary.
+The enrollment line (blue) stays within a few percent of its SY2005-06
+level across the whole window — it never drives the rate. Its visible dip
+at **SY2016-17–SY2017-18** is *not* a real enrollment decline. Those years
+aggregate fewer than 51 states — Wisconsin and other suppressed-count
+states fall out of the denominator because their numerator is NULL — so
+their enrollment leaves the total and pulls the indexed line down on its
+own. Net of that wobble, enrollment grew only about 1.7% from SY2005-06 to
+SY2019-20 before the genuine pandemic drop at SY2020-21 (Section 2.4). The
+served line (red) does almost all of the work — and it is the red line, not
+the blue, that produces the U. Table 2.1 quantifies each regime boundary.
 
 **Table 2.1 — Phase decomposition (percent change in components, percentage-point change in rate)**
 
 | Phase | Served (numerator) | Enrollment (denominator) | Rate |
 |---|---|---|---|
 | **A** decline, SY2005-06 → SY2011-12 | −4.64% | +0.83% | −0.74 pp |
-| **B** rebound, SY2011-12 → SY2019-20 | +10.53% | +2.57% | +1.00 pp |
-| COVID jump, SY2019-20 → SY2020-21 | +0.30% | −2.80% | +0.44 pp |
-| **C** pandemic era, SY2019-20 → SY2023-24 | +10.01% | −2.51% | +1.79 pp |
+| **B** rebound, SY2011-12 → SY2019-20 | +10.53% | +0.85% | +1.24 pp |
+| COVID jump, SY2019-20 → SY2020-21 | +0.30% | −2.52% | +0.41 pp |
+| **C** pandemic era, SY2019-20 → SY2023-24 | +10.01% | −1.47% | +1.65 pp |
 
 The decomposition reads cleanly:
 
@@ -80,11 +85,11 @@ The decomposition reads cleanly:
   Disabilities*](https://www.ecs.org/clearinghouse/01/17/72/11772.pdf)).
 
 - **Phase B (rebound)** is again numerator-driven, in the opposite
-  direction: served grew 10.5% against 2.6% enrollment growth.
+  direction: served grew 10.5% against 0.9% enrollment growth.
 
 - **The COVID jump** is the diagnostic case and is *denominator-driven*.
   Between SY2019-20 and SY2020-21 the served population barely moved
-  (+0.30%) while enrollment fell 2.80%. The rate rose 0.44 pp almost
+  (+0.30%) while enrollment fell 2.52%. The rate rose 0.41 pp almost
   entirely because the denominator shrank, not because more children were
   identified. Section 2.4 returns to this.
 
@@ -184,12 +189,13 @@ identification "bottomed out in 2012" should carry this caveat.
 ## 2.6 Summary
 
 The national identification rate fell from 13.7% to a 12.9% trough by the
-early 2010s and rose to 15.7% by SY2023-24. The fall and the rise are both
+early 2010s and rose to 15.8% by SY2023-24. The fall and the rise are both
 numerator-driven (the count of served children, not enrollment, moves the
-rate), with two exceptions that the decomposition isolates: enrollment is
-nearly flat throughout, and the single SY2020-21 step is a
-denominator-shrinkage artifact of the pandemic rather than expanded
-identification. The aggregate trend conceals offsetting category movements
+rate), with two exceptions that the decomposition isolates: enrollment does
+not drive the trend — apart from a coverage wobble at SY2016-17–SY2017-18,
+where suppressed-count states leave the denominator, it moves little — and
+the single SY2020-21 step is a denominator-shrinkage artifact of the
+pandemic rather than expanded identification. The aggregate trend conceals offsetting category movements
 (Chapters 3–4) and carries no built-in normative reading, since this
 aggregate, uncontrolled series cannot adjudicate the over- versus
 under-identification debate (Chapter 5). The U's trough coincides with the
