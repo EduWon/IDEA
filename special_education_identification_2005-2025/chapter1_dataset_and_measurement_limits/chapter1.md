@@ -112,7 +112,7 @@ identification rate stops at SY2023-24 (§1.2).
 
 *Figure 1.1.* The national identification rate traces a shallow U: it
 declines from about 13.7% in SY2005-06 to roughly 12.9% around
-SY2011-12–SY2013-14, then rises to about 15.7% by SY2023-24. The dashed
+SY2011-12–SY2013-14, then rises to about 15.8% by SY2023-24. The dashed
 line marks the NCES edition seam. The bottom of the U coincides with the
 seam, which is exactly why the apparent inflection cannot be attributed to
 real-world identification dynamics on the strength of this dataset alone.
