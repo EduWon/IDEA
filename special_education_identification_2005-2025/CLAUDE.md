@@ -136,15 +136,13 @@ build.py 라인 262 `expect 19`가 이를 명문화. → 그대로 두되 명시
 - 5세 재분류 break = 2020-21 (FFY 2020)
 - 13개는 OSEP 보고범주, 법정범주(34 CFR §300.8) 아님 (HI⊇Deafness, DD 비범주)
 
-## 나중에: figure 미용 종합 패스
-분석 작업(view/원장/노트북 로직) 완료 후 일괄 조정. 지금은 손대지 말 것.
-- fig2.1 하단 "included states only ..." Note가 x축 눈금 라벨 및 'School year'
-  축 제목과 겹침. 글자도 너무 작음(fontsize=7.5).
-- 같은 Note 패턴(ax.text transAxes, y≈-0.30)을 쓰는 fig1.1도 동일
-  겹침/가독성 문제 가능성 → 함께 점검.
-- fig5.2는 기존 주석(캡era 텍스트 + OSEP 화살표)에 억제-주 Note까지 더해져
-  그림이 빽빽함 → 배치 재조정 또는 일부 주석을 caption으로 이동 검토.
-- 대응 후보: subplots_adjust(bottom=...) 여백 확보, figtext로 이동, fontsize↑,
-  또는 caption을 그림 밖(본문 md)으로 분리.
-- chapter2.md §2.6 summary(L194 부근): summary 수정으로 한 줄이 길어져 주변
-  ~76자 줄바꿈 폭과 불균일. 내용 영향 없으나 일괄 재정렬(reflow) 대상.
+## 완료: figure 미용 종합 패스 (커밋 97b2ef8)
+4개 figure(fig1.1/2.1/2.2/5.2)의 억제-주 Note를 그림에서 제거하고
+각 장 본문의 figure 아래 이탤릭 캡션으로 이동해 처리.
+- fig2.1 하단 Note가 x축 라벨/제목과 겹침 → 해결: Note를 그림에서 본문
+  캡션으로 이동(ax.text 제거), 노트북 재실행.
+- fig1.1 동일 패턴 → 해결: 동일하게 Note 제거, 기존 캡션에 한 문장 덧붙임.
+- fig5.2 캡era 텍스트+OSEP 화살표에 Note까지 더해 빽빽 → 해결: Note 제거로
+  여유 확보, 본문 캡션으로 이동(텍사스는 주수준이라 불영향 명시).
+- chapter2.md §2.6 summary 긴 줄 → 해결: ~76자 폭으로 reflow.
+- (덤) 패스 중 발견한 chapter1.md fig1.1 캡션 stale 15.7→15.8% 정정(커밋 526e3d5).
