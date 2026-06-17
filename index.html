@@ -3599,19 +3599,14 @@ function Section({
     style: {
       marginBottom: 24
     }
-  }, React.createElement(SmallCaps, {
-    style: {
-      fontSize: 14,
-      color: ACCENT
-    }
-  }, "\xA7\xA0", ROMAN[num] || num, "\xA0\xB7\xA0", kicker), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: SERIF,
       color: INK,
       fontSize: 'clamp(24px, 3.6vw, 31px)',
       fontWeight: 400,
       lineHeight: 1.1,
-      marginTop: 8,
+      marginTop: 0,
       marginBottom: 16,
       letterSpacing: '-0.01em'
     }
@@ -5590,12 +5585,7 @@ function Whitepaper({
       paddingTop: 40,
       paddingBottom: 24
     }
-  }, React.createElement(SmallCaps, {
-    style: {
-      fontSize: 14,
-      color: ACCENT
-    }
-  }, "The Monograph"), React.createElement("h2", {
+  }, React.createElement("h2", {
     style: {
       fontFamily: SERIF,
       color: INK,
@@ -5843,14 +5833,7 @@ function TabBar({
       onMouseLeave: e => {
         if (!isActive) e.currentTarget.style.color = TEXT_3;
       }
-    }, React.createElement("span", {
-      style: {
-        fontFamily: MONO,
-        fontSize: 14,
-        color: isActive ? ACCENT : TEXT_4,
-        letterSpacing: '0.03em'
-      }
-    }, tab.num), React.createElement("span", null, tab.label)));
+    }, React.createElement("span", null, tab.label)));
   })));
 }
 function Overview() {
